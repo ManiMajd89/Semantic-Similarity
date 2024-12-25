@@ -21,10 +21,54 @@ Credits: ESC180 project 3
 
 ---
 
-## How It Works
+## Core Functions:
+1. norm(vec):
+   - Computes the Euclidean norm of a vector.
 
-### Semantic Descriptor
-A **semantic descriptor** vector represents the context of a word based on its co-occurrence with other words in sentences. For example:
-- Given the text: I am a sick man. I am a spiteful man. I am an unattractive man.
-- The semantic descriptor for `"man"` is:
-{"i": 3, "am": 3, "a": 2, "sick": 1, "spiteful": 1, "an": 1, "unattractive": 1}
+2. cosine_similarity(vec1, vec2):
+   - Calculates the cosine similarity between two word vectors.
+
+3. build_semantic_descriptors(sentences):
+   - Constructs semantic descriptors from tokenized sentences by tracking word co-occurrences.
+
+4. build_semantic_descriptors_from_files(filenames):
+   - Reads and preprocesses text from input files, then calls build_semantic_descriptors to generate
+     descriptors.
+
+5. most_similar_word(word, choices, semantic_descriptors, similarity_fn):
+   - Finds the word most similar to the input word from a list of choices.
+
+6. run_similarity_test(filename, semantic_descriptors, similarity_fn):
+   - Runs a similarity test by comparing the most similar word predictions to the expected results
+     in the input test file.
+
+## Usage:
+1. Ensure you have the required text files and test datasets.
+2. Uncomment the main function and specify filenames as needed:
+    filename = "test.txt"
+   
+    semantic_descriptors = build_semantic_descriptors_from_files(["war_and_peace.txt", "swanns_way.txt"])
+   
+    print(run_similarity_test(filename, semantic_descriptors, cosine_similarity))
+
+Example Input:
+
+- Training Text Files: Large text files such as war_and_peace.txt and swanns_way.txt.
+  
+- Test Dataset: A file like test.txt with the format:
+    word1 correct_choice choice1 choice2 choice3
+
+Example Output:
+
+Accuracy: 85.0%
+
+## Installation:
+1. Clone the repository:
+    git clone https://github.com/<your-username>/semantic-similarity-analyzer.git
+   
+3. Navigate to the project directory:
+    cd semantic-similarity-analyzer
+   
+5. Ensure Python is installed (version 3.7+ recommended).
+   
+7. Install required packages (if any).
