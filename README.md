@@ -64,9 +64,11 @@ Accuracy: 85.0%
 
 ## Installation:
 1. Clone the repository:
+   
     git clone https://github.com/<your-username>/semantic-similarity-analyzer.git
    
 3. Navigate to the project directory:
+   
     cd semantic-similarity-analyzer
    
 5. Ensure Python is installed (version 3.7+ recommended).
